@@ -51,14 +51,21 @@ Report success only if the command exited 0. Cloud chat with no local shell: giv
 
 Prefer `open_web.ps1` when a URL is enough. Use the mouse when they want a click on screen.
 
+Fast path — start the server **once**, then only HTTP:
+
 ```powershell
-powershell -ExecutionPolicy Bypass -File "SKILL_DIR/scripts/mouse.ps1" screenshot
-powershell -ExecutionPolicy Bypass -File "SKILL_DIR/scripts/mouse.ps1" click 400 300
-powershell -ExecutionPolicy Bypass -File "SKILL_DIR/scripts/mouse.ps1" type "hello"
-powershell -ExecutionPolicy Bypass -File "SKILL_DIR/scripts/mouse.ps1" key "^t"
+Start-Process powershell -ArgumentList '-ExecutionPolicy Bypass -File "SKILL_DIR/scripts/da_server.ps1"'
+Invoke-RestMethod http://127.0.0.1:8765/shot
+Invoke-RestMethod "http://127.0.0.1:8765/tap?x=400&y=300"
 ```
 
-Loop: screenshot → one click or key → screenshot again. Read the PNG. Stop after 3 misses or a security prompt.
+If the server is down, one process (not three):
+
+```powershell
+powershell -ExecutionPolicy Bypass -File "SKILL_DIR/scripts/mouse.ps1" tap 400 300
+```
+
+Do not launch three separate `mouse.ps1` processes for shot+click+shot. Shots are 1280px JPEGs. Stop after 3 misses or a security prompt.
 
 Coordinates are pixels from the top-left of the primary screen. `key` uses SendKeys (`^` Ctrl, `{ENTER}`, `{TAB}`).
 
