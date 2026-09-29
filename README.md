@@ -15,7 +15,7 @@ The agent runs a small script on **your computer**. It does not work in claude.a
 ## Install (Windows)
 
 ```powershell
-git clone https://github.com/MaasAhsan/device-autopilot.git
+git clone https://github.com/YOURUSER/device-autopilot.git
 cd device-autopilot
 powershell -ExecutionPolicy Bypass -File .\install.ps1
 ```
@@ -32,9 +32,12 @@ Self-test without Claude:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\open_web.ps1 -Search "cats" -Engine youtube -Browser opera-gx
-powershell -ExecutionPolicy Bypass -File .\scripts\mouse.ps1 status
-powershell -ExecutionPolicy Bypass -File .\scripts\mouse.ps1 screenshot
+powershell -ExecutionPolicy Bypass -File .\scripts\mouse.ps1 tap 400 300
 ```
+
+Many clicks: start `.\scripts\da_server.ps1` once, then `Invoke-RestMethod http://127.0.0.1:8765/shot`.
+```
+
 
 Mouse docs: [docs/mouse.md](docs/mouse.md).
 
