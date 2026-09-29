@@ -9,6 +9,8 @@ New-Item -ItemType Directory -Force (Join-Path $Dest "scripts") | Out-Null
 Copy-Item (Join-Path $Root "skills\device-autopilot\SKILL.md") (Join-Path $Dest "SKILL.md") -Force
 Copy-Item (Join-Path $Root "scripts\open_web.ps1") (Join-Path $Dest "scripts\open_web.ps1") -Force
 Copy-Item (Join-Path $Root "scripts\mouse.ps1") (Join-Path $Dest "scripts\mouse.ps1") -Force
+Copy-Item (Join-Path $Root "scripts\da_core.ps1") (Join-Path $Dest "scripts\da_core.ps1") -Force
+Copy-Item (Join-Path $Root "scripts\da_server.ps1") (Join-Path $Dest "scripts\da_server.ps1") -Force
 if (Test-Path (Join-Path $Root "scripts\open_web.sh")) {
     Copy-Item (Join-Path $Root "scripts\open_web.sh") (Join-Path $Dest "scripts\open_web.sh") -Force
 }
