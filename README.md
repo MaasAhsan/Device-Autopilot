@@ -15,7 +15,7 @@ The agent runs a small script on **your computer**. It does not work in claude.a
 ## Install (Windows)
 
 ```powershell
-git clone https://github.com/YOURUSER/device-autopilot.git
+git clone https://github.com/MaasAhsan/device-autopilot.git
 cd device-autopilot
 powershell -ExecutionPolicy Bypass -File .\install.ps1
 ```
